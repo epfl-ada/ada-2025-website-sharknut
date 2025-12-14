@@ -1,9 +1,13 @@
 theme: jekyll-theme-minimal
-title: ADA Template Website
-description: A template website for ADA
-show_downloads: True
+
+title: "Cross-species analysis of Alzheimer’s pathology"
+description: "Assessing the relevance of the TgCRND8 mouse model using Xenium spatial transcriptomics."
+
+url: "https://epfl-ada.github.io"
+baseurl: "/ada-2025-website-sharknut"
+
+show_downloads: false 
+
 navigation:
-  - title: Cross-species analysis of Alzheimer’s pathology
+  - title: Home
     url: /
-  - title: Example
-    url: example
