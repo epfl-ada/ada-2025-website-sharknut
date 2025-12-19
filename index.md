@@ -11,8 +11,6 @@ title: "Cross-species spatial transcriptomics of Alzheimer’s disease"
 
 ## 1. Why model relevance matters in Alzheimer’s disease
 <a id="why-models"></a>
-## 1. Why model relevance matters in Alzheimer’s disease
-<a id="why-models"></a>
 Alzheimer’s disease (AD) is the most common cause of dementia worldwide, characterized by progressive memory loss, cognitive decline, and behavioral changes that ultimately impair daily life. Today, tens of millions of people live with the disease, and this number is expected to rise sharply as populations age. Beyond the personal and emotional toll on patients and families, Alzheimer’s represents a growing public health challenge, with enormous social and economic consequences. Yet despite decades of research, there is still no cure, and disease-modifying treatments remain limited.
 ![AD prevalence]({{ site.baseurl }}/assets/Figures/01_1_AD_prevalence.png)
 *Figure 1: **Projected prevalence of Alzheimer’s disease in the United States by age group.**
