@@ -31,7 +31,7 @@ Alzheimer’s disease affects the brain across multiple biological scales, from 
 <a id="data"></a>
 
 To investigate Alzheimer’s disease across cellular, molecular, and spatial dimensions, we rely on spatial transcriptomics, a technology that measures gene expression directly in intact tissue while preserving spatial context. This approach makes it possible to identify cell types, quantify their transcriptional states, and examine how cells are organized relative to one another, all within the same tissue section.
-![Dataset Overview]({{ site.baseurl }}/assets/Figures/02_1_dataset.png)
+![Dataset Overview]({{ site.baseurl }}/assets/figures/02_1_dataset.png)
 ***Figure 3: Overview of spatial transcriptomics datasets analyzed in this study.**
 One wild-type mouse (13.4 months), one TgCRND8 mouse (17.9 months), one human Alzheimer’s disease sample, and one healthy human control were profiled using the Xenium In Situ gene expression platform. All analyses focus on cortical tissue.*
   
