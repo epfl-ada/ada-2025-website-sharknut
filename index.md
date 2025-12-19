@@ -13,7 +13,7 @@ title: "Cross-species spatial transcriptomics of Alzheimer’s disease"
 <a id="why-models"></a>
 Alzheimer’s disease (AD) is the most common cause of dementia worldwide, characterized by progressive memory loss, cognitive decline, and behavioral changes that ultimately impair daily life. Today, tens of millions of people live with the disease, and this number is expected to rise sharply as populations age. Beyond the personal and emotional toll on patients and families, Alzheimer’s represents a growing public health challenge, with enormous social and economic consequences. Yet despite decades of research, there is still no cure, and disease-modifying treatments remain limited.
 ![AD prevalence]({{ site.baseurl }}/assets/figures/01_1_AD_prevalence.png)
-*Figure 1: **Projected prevalence of Alzheimer’s disease in the United States by age group.**
+***Figure 1: Projected prevalence of Alzheimer’s disease in the United States by age group.**
 The number of people living with Alzheimer’s disease is expected to rise sharply over the coming decades, driven primarily by population aging. Source: Alzheimer’s Association, 2020 Alzheimer's disease facts and figures - [link](https://alz-journals.onlinelibrary.wiley.com/doi/10.1002/alz.12068).*
 
 At the biological level, Alzheimer’s disease is not the result of a single malfunction. Although amyloid plaques and tau tangles are its most recognizable features, the disease unfolds through widespread changes in the brain’s cellular ecosystem. Neurons, glial cells, and immune cells do not simply degenerate or activate in isolation: their abundance shifts, their molecular programs are altered, and their spatial relationships within tissue are reorganized. Together, these changes shape how the disease emerges, propagates, and ultimately disrupts brain function.
@@ -22,7 +22,7 @@ Because access to living human brain tissue is inherently limited, much of our u
 
 This diversity of models highlights an important point: Alzheimer’s disease cannot be reduced to a single biological readout, and no model is expected to reproduce all of its facets simultaneously. Rather than treating model validity as an all-or-nothing concept, a more informative question is which dimensions of the disease a given model captures, and which it does not. In this project, we adopt this perspective by comparing TgCRND8 mouse and human Alzheimer’s brain across three complementary scales: cellular composition and activation, transcriptional programs within cell types, and local spatial organization, using spatial transcriptomics to identify both points of convergence and sources of divergence.
 ![Analysis layers]({{ site.baseurl }}/assets/figures/01_2_analysis_layers.png)
-*Figure 2: **Multiscale framework for evaluating mouse model relevance in Alzheimer’s disease.**
+***Figure 2: Multiscale framework for evaluating mouse model relevance in Alzheimer’s disease.**
 Alzheimer’s disease affects the brain across multiple biological scales, from cellular composition to gene regulation and spatial organization. We assess the relevance of the TgCRND8 mouse model by comparing mouse and human Alzheimer’s brains independently at each of these scales.*
 
 ---
@@ -30,21 +30,20 @@ Alzheimer’s disease affects the brain across multiple biological scales, from 
 ## 2. The data: matched spatial transcriptomics across species
 <a id="data"></a>
 
-**Goal:** Establish credibility and comparability
+To investigate Alzheimer’s disease across cellular, molecular, and spatial dimensions, we rely on spatial transcriptomics, a technology that measures gene expression directly in intact tissue while preserving spatial context. This approach makes it possible to identify cell types, quantify their transcriptional states, and examine how cells are organized relative to one another, all within the same tissue section.
+![Dataset Overview]({{ site.baseurl }}/assets/Figures/02_1_dataset.png)
+***Figure 3: Overview of spatial transcriptomics datasets analyzed in this study.**
+One wild-type mouse (13.4 months), one TgCRND8 mouse (17.9 months), one human Alzheimer’s disease sample, and one healthy human control were profiled using the Xenium In Situ gene expression platform. All analyses focus on cortical tissue.*
+  
+For the mouse data, we focus on the TgCRND8 model of Alzheimer’s disease, a widely used transgenic model carrying human APP with the Swedish (KM670/671NL) and Indiana (V717F) mutations. These mutations drive early and robust amyloid pathology, making TgCRND8 a popular model for studying amyloid-related mechanisms in Alzheimer’s disease. One TgCRND8 mouse (17.9 months) was compared to one wild-type control (13.4 months).
 
-Text:
-- Xenium In Situ gene expression
-- TgCRND8 vs WT mice
-- AD vs healthy human cortex
-- Same technology, comparable output structure
+Human data consist of post-mortem cortical tissue sections from one individual diagnosed with Alzheimer’s disease and one neurologically healthy control, obtained from the Human Xenium Brain dataset provided by 10x Genomics. While limited in sample number, these data provide high-resolution spatial transcriptomic measurements that enable a detailed comparison of disease-associated cellular, molecular, and spatial features within human cortex.
 
-**Visuals**
-- Sample overview grid
-- Representative Xenium images (mouse & human)
+Both mouse and human samples were generated using the Xenium In Situ gene expression platform, which profiles a targeted panel of genes selected to capture major cell types and disease-relevant biological pathways. Using the same spatial transcriptomics technology across species ensures comparable data structure, quality metrics, and spatial resolution, forming a solid foundation for meaningful cross-species comparison.
 
 ---
 
-## Making mouse and human data comparable
+## 3. Making mouse and human data comparable
 <a id="harmonization"></a>
 
 Comparing Alzheimer’s disease across species is inherently challenging. Mouse and human brains differ not only biologically, but also in how data are generated, annotated, and spatially sampled. Without careful alignment, apparent differences could reflect technical artifacts rather than genuine disease-related effects. A central goal of this project was therefore to transform heterogeneous Xenium outputs into a common, analysis-ready representation that supports meaningful cross-species comparison.
