@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 To investigate Alzheimer’s disease across cellular, molecular, and spatial dimensions, we rely on spatial transcriptomics, a technology that measures gene expression directly in intact tissue while preserving spatial context. This approach makes it possible to identify cell types, quantify their transcriptional states, and examine how cells are organized relative to one another, all within the same tissue section.
 ![Dataset Overview]({{ site.baseurl }}/assets/Figures/02_1_dataset.png)
 *Figure 3 : **Overview of spatial transcriptomics datasets analyzed in this study.**
