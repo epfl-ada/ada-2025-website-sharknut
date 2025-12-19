@@ -1,139 +1,180 @@
 ---
 layout: default
-title: Cross-species analysis of Alzheimer’s pathology
+title: "Cross-species spatial transcriptomics of Alzheimer’s disease"
 ---
 
-# Cross-species analysis of Alzheimer’s pathology
-**ADA 2025 — EPFL**  
-**Team:** Sharknut  
-**Project focus:** Assessing the relevance of the TgCRND8 mouse model for Alzheimer’s disease using Xenium spatial transcriptomics.
+# Cross-species spatial transcriptomics reveals partial convergence of Alzheimer’s pathology
 
----
-
-## Motivation
-Alzheimer’s disease (AD) is a complex neurodegenerative disorder whose molecular mechanisms remain only partially understood. Mouse models are widely used to study AD pathology, yet their relevance for human disease—particularly at the level of cell-type-specific transcriptional programs—remains an open question.
-
-Recent advances in spatial transcriptomics, such as 10x Genomics Xenium, enable high-resolution, in situ profiling of gene expression across intact tissue sections. This provides a unique opportunity to directly compare disease-associated transcriptional changes across species within a shared anatomical context.
-
-In this project, we investigate to what extent the TgCRND8 mouse model recapitulates human AD-related transcriptional alterations in the cortex.
+*A data-driven evaluation of the TgCRND8 mouse model using Xenium In Situ gene expression.*
 
 ---
 
-## Data
-We analyze two Xenium spatial transcriptomics datasets:
+## 1. Why model relevance matters in Alzheimer’s disease
+<a id="why-models"></a>
+At the biological level, Alzheimer’s disease is not the result of a single malfunction. Although amyloid plaques and tau tangles are its most recognizable features, the disease unfolds through widespread changes in the brain’s cellular ecosystem. Neurons, glial cells, and immune cells do not simply degenerate or activate in isolation: their abundance shifts, their molecular programs are altered, and their spatial relationships within tissue are reorganized. Together, these changes shape how the disease emerges, propagates, and ultimately disrupts brain function.
 
-- **Mouse:** TgCRND8 (AD model) vs WT mice at multiple ages  
-- **Human:** Alzheimer’s disease vs healthy control cortical samples  
+Because access to living human brain tissue is inherently limited, much of our understanding of these processes comes from animal models. Over the years, a wide range of mouse models has been developed to study Alzheimer’s disease, each designed to capture specific aspects of pathology, such as amyloid accumulation, tau-related changes, or neuroinflammatory responses. Mouse models such as TgCRND8 have been instrumental in dissecting amyloid-driven mechanisms and testing therapeutic hypotheses. At the same time, mouse and human brains differ in key ways — in their cellular composition, transcriptional regulation, and tissue organization — meaning that not all disease features observed in mice translate directly to human patients.
 
-For each dataset, we use:
-- Cell segmentation and cell-type annotations
-- A predefined gene panel shared across samples
-- Spatially resolved gene expression at single-cell resolution
-
-Only cortical cells are retained for downstream analyses.
+This diversity of models highlights an important point: Alzheimer’s disease cannot be reduced to a single biological readout, and no model is expected to reproduce all of its facets simultaneously. Rather than treating model validity as an all-or-nothing concept, a more informative question is which dimensions of the disease a given model captures, and which it does not. In this project, we adopt this perspective by comparing TgCRND8 mice and human Alzheimer’s brains across three complementary scales — cellular composition and activation, transcriptional programs within cell types, and local spatial organization — using spatial transcriptomics to identify both points of convergence and sources of divergence.
 
 ---
 
-## Research questions
-- **RQ1:** How do cell-type compositions differ between disease and control conditions across species?
-- **RQ2:** To what extent are disease-associated transcriptional programs conserved between mouse and human cortical cell types?
+## 2. The data: matched spatial transcriptomics across species
+<a id="data"></a>
 
-This website focuses primarily on **RQ2**.
+**Goal:** Establish credibility and comparability
 
----
+Text:
+- Xenium In Situ gene expression
+- TgCRND8 vs WT mice
+- AD vs healthy human cortex
+- Same technology, comparable output structure
 
-## Methods overview
-At a high level, our analysis pipeline includes:
-- Quality control and gene filtering based on expression prevalence
-- Cell-class stratification into major neuronal and glial populations
-- Differential expression analysis within each species and cell class
-- Pathway enrichment analysis of up- and down-regulated genes
-- Cross-species comparison of transcriptional signals at gene and pathway levels
-
-Detailed implementation is available in the project repository.
+**Visuals**
+- Sample overview grid
+- Representative Xenium images (mouse & human)
 
 ---
 
-# RQ2 — Cross-species transcriptional convergence
+## 3. Making mouse and human comparable
+<a id="harmonization"></a>
 
-### What does “convergence” mean?
-We define cross-species convergence as the presence of transcriptional changes that are:
-- Associated with disease status in both species
-- Observed within the same broad cell class
-- Directionally consistent (up- or down-regulated)
+**Goal:** Shared analytical foundation for all RQs
 
-We assess convergence at both the **gene level** and the **pathway level**.
+Text:
+- Cortex masking to align anatomy
+- Broad cell-class taxonomy shared across species
+- Human cell labels inferred; mouse labels curated
+- One-to-one human–mouse ortholog mapping
 
----
-
-## RQ2.1 — Gene filtering and differential expression context
-Before comparing transcriptional signals across species, it is essential to contextualize:
-- How many genes pass expression filters in each species
-- How many of these genes are identified as differentially expressed (DE)
-
-This step determines the depth and sensitivity of downstream pathway analyses.
-
-<!-- FIGURE: gene filtering + DE context -->
-
-*Figure X: Fraction of genes retained after filtering and number of differentially expressed genes across species and cell classes.*
-
-**Key observation:**  
-*(1–2 sentences summarizing the main pattern you observe here.)*
+**Visuals**
+- Cortex mask overlay (before / after)
+- Cell-class composition barplots (mouse vs human)
 
 ---
 
-## RQ2.2 — Pathway-level overlap across species
-To move beyond individual genes, we perform pathway enrichment analysis separately in mouse and human for each cell class.
+# Research Question 1 — Cellular composition and activation
+<a id="rq1"></a>
 
-We then quantify cross-species overlap between enriched pathways, accounting for differences in enrichment depth across species.
+## 4. How does Alzheimer’s disease reshape cortical cell populations?
 
-<!-- FIGURE: pathway overlap / similarity -->
+**Goal:** RQ1 main result
 
-*Figure X: Cross-species pathway overlap across cell classes.*
+Text:
+- Changes in abundance of major cell classes
+- Evidence of disease-related activation
+- Mouse vs human comparison
 
-**Key observation:**  
-*(1–2 sentences summarizing glial vs neuronal patterns, or convergence vs divergence.)*
+**Visuals**
+- Stacked barplots of cell-type proportions
+- Activation marker expression plots
 
----
-
-## RQ2.3 — Concordant genes and Alzheimer’s relevance
-At the gene level, we examine which differentially expressed genes are:
-- Shared between species
-- Directionally concordant
-- Associated with Alzheimer’s disease
-
-Particular attention is given to genes with known AD relevance.
-
-<!-- FIGURE: concordance scatter / APOE highlight -->
-
-*Figure X: Gene-level concordance between mouse and human.*
-
-**Key observation:**  
-*(1–2 sentences highlighting scarcity of concordant genes and any standout examples.)*
+**Takeaway (1–2 lines, bold)**
+> Alzheimer’s disease alters cortical cellular composition in both species, with partially conserved but species-specific patterns.
 
 ---
 
-## RQ2 wrap-up
-Across cortical cell classes, we observe:
-- Limited gene-level concordance between mouse and human
-- Stronger alignment at the pathway level, particularly in glial populations
-- Marked differences between neuronal and non-neuronal cell classes
+# Research Question 2 — Transcriptional programs within cell types
+<a id="rq2"></a>
 
-Together, these results suggest that while the TgCRND8 model captures certain higher-level disease-associated processes, substantial species-specific regulation persists.
+## 5. Disease-related transcriptional changes differ strongly by species
+
+**Goal:** Set up DE asymmetry
+
+Text:
+- DE performed independently per species
+- Human shows much stronger transcriptional perturbation
+- Cell-type-specific variation (e.g. OPC lineage)
+
+**Visuals**
+- DE gene count barplots by cell class
+- Volcano plot examples (mouse vs human)
 
 ---
 
-## Limitations
-Several limitations should be considered:
-- The analysis is restricted to a predefined Xenium gene panel
-- Differential expression yield differs markedly between species
-- Human and mouse samples differ in age structure and disease progression
-- Cell-type annotations may not be perfectly aligned across species
+## 6. From genes to pathways: assessing biological convergence
+
+**Goal:** Pathway-level insight
+
+Text:
+- Motivation for pathway analysis
+- Enrichment performed within each species
+- Size-normalized overlap used for comparison
+
+**Visuals**
+- Pathway overlap dot plots
+- Heatmaps of enriched pathways by cell class
+
+**Takeaway**
+> Some biological programs converge across species despite strong gene-level divergence.
 
 ---
 
-## Key takeaways
-- Cross-species transcriptional convergence in AD is limited at the gene level
-- Pathway-level signals reveal partial conservation, especially in glial cells
-- Neuronal populations show weaker cross-species alignment
-- The TgCRND8 model captures aspects of AD biology but does not fully recapitulate human disease
+## 7. Alzheimer’s disease genes in context: the case of APOE
+
+**Goal:** Anchor biology
+
+Text:
+- Role of APOE in AD
+- Astrocyte-specific regulation
+- Stronger effect in human
+
+**Visuals**
+- APOE expression maps
+- Cross-species logFC comparison
+
+**Takeaway**
+> Conserved regulation of APOE highlights selective molecular overlap between TgCRND8 and human AD.
+
+---
+
+# Research Question 3 — Local spatial organization
+<a id="rq3"></a>
+
+## 8. Does Alzheimer’s disease reshape local cellular micro-architecture?
+
+**Goal:** RQ3 main result
+
+Text:
+- Definition of local neighborhoods
+- Cell–cell proximity and spatial interactions
+- Mouse vs human comparison
+
+**Visuals**
+- Spatial interaction maps
+- Distance / neighborhood enrichment plots
+
+**Takeaway**
+> Alzheimer’s disease alters local cellular organization, with only partial spatial conservation across species.
+
+---
+
+## 9. Integrative assessment of TgCRND8 model relevance
+<a id="integration"></a>
+
+**Goal:** Bring the three RQs together
+
+Text:
+- One short paragraph per RQ
+- Emphasize partial, scale-dependent relevance
+- Highlight translational implications
+
+**Visuals**
+- Summary matrix (RQ × conserved / divergent)
+- Final schematic overview
+
+---
+
+## 10. Take-home messages
+<a id="take-home"></a>
+
+**Bulleted summary**
+- Cross-species relevance depends on biological scale
+- Transcriptional and spatial signals are stronger in human AD
+- TgCRND8 captures selected but not all AD hallmarks
+
+Links:
+- 📓 Analysis notebook
+- 💻 GitHub repository
+
+---
