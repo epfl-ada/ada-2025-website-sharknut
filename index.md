@@ -114,18 +114,84 @@ Text:
 # Research Question 2 — Transcriptional programs within cell types
 <a id="rq2"></a>
 
+Alzheimer’s disease is associated with widespread transcriptional changes in the brain, but the extent to which these changes are conserved across species remains unclear. In this research question, we ask whether within corresponding cell types, TgCRND8 mice and human Alzheimer’s brains exhibit similar disease-associated transcriptional programs. Rather than focusing solely on gene-by-gene overlap, which is known to be limited between mouse and human, we examine transcriptional changes within matched broad cell classes and assess convergence at both the gene and pathway levels.
+
 ## 5. Disease-related transcriptional changes differ strongly by species
 
-**Goal:** Set up DE asymmetry
+We first examined disease-associated transcriptional changes within matched broad cell classes in mouse and human. Across all cell classes, human Alzheimer’s samples consistently exhibit substantially more differentially expressed genes than TgCRND8 mice. This imbalance is observed in both neuronal and glial populations, indicating that transcriptional remodeling in human disease is broader and more pronounced than in the mouse model.
 
-Text:
-- DE performed independently per species
-- Human shows much stronger transcriptional perturbation
-- Cell-type-specific variation (e.g. OPC lineage)
+<iframe
+  src="{{ site.baseurl }}/assets/plotly/rq2_de_context_kept_de.html"
+  width="100%"
+  height="560"
+  style="border:0; border-radius:12px;"
+  loading="lazy">
+</iframe>
 
-**Visuals**
-- DE gene count barplots by cell class
-- Volcano plot examples (mouse vs human)
+
+***Figure : Gene filtering and differential expression yield by cell class.** For each broad cell class, stacked bars show the fraction of panel genes that are filtered out (expression < 5% of cells), kept but not differentially expressed, or differentially expressed (DE) in human (left) and mouse (right). Hover information reports the number of cells per condition and the number of up- and down-regulated genes used in downstream analyses.*
+
+This strong asymmetry has important consequences for cross-species comparison. When one species exhibits a much larger pool of differentially expressed genes, direct gene-by-gene overlap becomes inherently limited, even if similar biological processes are affected. As a result, gene-level concordance alone provides an incomplete and potentially misleading view of cross-species similarity.
+
+---
+
+## 6. From genes to pathways: assessing biological convergence
+
+To move beyond the limitations of gene-level comparison, we examined transcriptional changes at the pathway level, where coordinated groups of genes are interpreted as functional biological programs. Pathway enrichment analyses were performed independently within each species and cell class, allowing comparison of disease-associated processes while accounting for the strong imbalance in gene-level signal between mouse and human.
+
+At this level, a more nuanced picture emerges. Within several cell classes, mouse and human Alzheimer’s samples share dysregulated pathways despite limited overlap at the individual gene level. These shared pathways frequently involve immune-related processes, cellular stress responses, and metabolic or homeostatic functions, suggesting that Alzheimer’s disease can perturb similar biological programs across species even when different genes drive the response.
+
+<iframe
+  src="{{ site.baseurl }}/assets/plotly/figuresshared_reactome_tables.html"
+  width="100%"
+  height="560"
+  style="border:0; border-radius:12px;"
+  loading="lazy">
+</iframe>
+
+However, pathway-level convergence is neither uniform nor global. The number of enriched pathways, their statistical strength, and their direction of regulation differ markedly between mouse and human, and these differences vary across cell classes. In some cases, pathways enriched in human Alzheimer’s samples have no counterpart in the mouse model, while in others, overlap is observed but with weaker or opposite directional signals.
+
+<iframe
+  src="{{ site.baseurl }}/assets/plotly/rq2_layer1_plotly_coverage_scatter.html"
+  width="100%"
+  height="560"
+  style="border:0; border-radius:12px;"
+  loading="lazy">
+</iframe>
+
+---
+
+## 7. Focusing on orthologous Alzheimer’s disease–associated genes
+
+Building on the pathway-level convergence observed above, we next refined the analysis at the gene level by focusing on curated mouse–human orthologs, with particular attention to genes previously implicated in Alzheimer’s disease. This step asks a more stringent question: are the shared transcriptional programs observed across species driven by conserved regulation of individual disease-related genes, or does convergence primarily emerge at the level of broader biological processes?
+
+To address this, differential expression results from mouse and human were compared within each cell class using a stepwise filtering strategy. Starting from a fixed set of curated ortholog pairs, genes were progressively filtered based on whether they were significantly differentially expressed in mouse, in human, in both species, and finally whether they were regulated in the same direction across species. Alzheimer’s disease–associated genes were tracked explicitly throughout this process.
+
+
+<iframe
+  src="{{ site.baseurl }}/assets/plotly/rq2_layer2_funnel.html"
+  width="100%"
+  height="560"
+  style="border:0; border-radius:12px;"
+  loading="lazy">
+</iframe>
+
+This filtering reveals a sharp and consistent collapse in gene counts across all cell classes. While many orthologous genes are detected and some are differentially expressed in either species, very few satisfy both significance and directional concordance in mouse and human. Importantly, the number of conserved genes annotated as Alzheimer’s disease–associated is extremely limited. Across all examined cell classes, only a single AD-associated gene remains after all filtering steps.
+
+To further characterize gene-level cross-species concordance, mouse and human disease-associated log fold-changes were compared directly for orthologous Alzheimer’s disease–associated genes using quadrant scatter plots. This analysis confirms that APOE is the only gene that is both significantly differentially expressed and regulated in the same direction across species, and that this signal is restricted to astrocytes.
+
+<iframe
+  src="{{ site.baseurl }}/assets/plotly/rq2_layer2_quadrant_panel.html"
+  width="100%"
+  height="560"
+  style="border:0; border-radius:12px;"
+  loading="lazy">
+</iframe>
+
+In both species, astrocytic APOE expression is reduced in Alzheimer’s disease, with a modest effect size in the TgCRND8 mouse model (logFC ≈ −1.0) and a markedly stronger effect in human Alzheimer’s samples (logFC ≈ −12.1). This striking difference in magnitude mirrors the broader asymmetry in transcriptional remodeling observed between species, even when the direction of regulation is conserved.
+APOE encodes a lipid-transport protein predominantly expressed by astrocytes in the central nervous system and represents the strongest genetic risk factor for late-onset Alzheimer’s disease in humans. Its expression is closely linked to astrocyte reactivity, neuroinflammatory responses, and amyloid-β metabolism. Importantly, altered Apoe expression has been reported repeatedly in amyloid-driven mouse models, including TgCRND8, and is thought to reflect astrocytic responses to amyloid pathology. In this context, the selective conservation of APOE across species is biologically plausible and consistent with the design of TgCRND8 as a model that primarily captures amyloid-associated disease mechanisms.
+
+More broadly, the extreme scarcity of conserved Alzheimer’s disease–associated genes — despite robust pathway-level convergence — suggests that cross-species similarity in Alzheimer’s disease arises primarily from shared cellular programs rather than widespread conservation of individual disease risk genes. This distinction highlights the importance of multiscale analysis when evaluating the translational relevance of mouse models, and underscores that model validity may depend on which aspects of the disease are being probed.
 
 ---
 
