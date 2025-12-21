@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #f7f1e8;
+  --bg-2: #efe2d1;
+  --ink: #1c1a17;
+  --muted: #5f5a52;
+  --panel: #fff8f0;
+  --accent: #e76f51;
+  --accent-2: #2a9d8f;
+  --line: rgba(28, 26, 23, 0.12);
+  --shadow: 0 20px 40px rgba(28, 26, 23, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(1200px 800px at 10% -10%, #fff5e7 0%, transparent 60%),
+    radial-gradient(900px 600px at 90% 10%, #e6f4f1 0%, transparent 55%),
+    linear-gradient(160deg, var(--bg) 0%, var(--bg-2) 100%);
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(300px 200px at 70% 80%, rgba(231, 111, 81, 0.12), transparent 70%),
+    radial-gradient(240px 200px at 20% 60%, rgba(42, 157, 143, 0.12), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 0.8s ease;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-family: "Fraunces", serif;
+  font-size: clamp(2rem, 3.2vw, 3.2rem);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.badge {
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.controls label {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+select,
+button {
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+select:hover,
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(28, 26, 23, 0.12);
+}
+
+.card {
+  position: relative;
+  background: var(--panel);
+  border-radius: 22px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  animation: cardIn 1s ease;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(231, 111, 81, 0.06), transparent 45%);
+  pointer-events: none;
+}
+
+.plot {
+  width: 100%;
+  height: 680px;
+}
+
+.footnote {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .plot {
+    height: 520px;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
