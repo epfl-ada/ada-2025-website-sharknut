@@ -1,0 +1,727 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>How Well Does a Mouse Model Capture Human Alzheimer’s Disease? </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2cfa584c-3b4e-8051-bbb2-d1a38ddea90e" class="page serif"><header><img class="page-cover-image" src="How%20Well%20Does%20a%20Mouse%20Model%20Capture%20Human%20Alzheime/notion_cover.jpg" style="object-position:center 40.28%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon notion-static-icon" src="https://www.notion.so/icons/microscope_gray.svg"/></div><h1 class="page-title" dir="auto">How Well Does a Mouse Model Capture Human Alzheimer’s Disease? </h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-8072-9bf7-e20aca74dad4" class="block-color-gray"><em>A data-driven evaluation of the TgCRND8 mouse model using Xenium In Situ gene expression.</em></p></div><div style="display:contents" dir="auto"><hr id="2cfa584c-3b4e-803a-811c-e502718c526d"/></div><div style="display:contents" dir="auto"><h2 id="2cfa584c-3b4e-80f6-8ce7-dc13b8aac558" class="">Introduction</h2></div><div style="display:contents" dir="auto"><h3 id="2cfa584c-3b4e-80f5-a20e-c28f1333702b" class=""><strong>Why model relevance matters in Alzheimer’s disease</strong></h3></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-805b-af69-cbbc746859ca" class="">Alzheimer’s disease (AD) is the most common cause of dementia worldwide, characterized by progressive memory loss, cognitive decline, and behavioral changes that ultimately impair daily life. Today, tens of millions of people live with the disease, and this number is expected to rise sharply as populations age. Beyond the personal and emotional toll on patients and families, Alzheimer’s represents a growing public health challenge, with enormous social and economic consequences. Yet despite decades of research, there is still no cure, and disease-modifying treatments remain limited.</p></div><div style="display:contents" dir="ltr"><figure id="2cfa584c-3b4e-80f0-af80-da9cc2eb4dcb" class="image"><a href="How%20Well%20Does%20a%20Mouse%20Model%20Capture%20Human%20Alzheime/image.png"><img style="width:356.5px" src="How%20Well%20Does%20a%20Mouse%20Model%20Capture%20Human%20Alzheime/image.png"/></a><figcaption><em><strong>Figure 1: Projected prevalence of Alzheimer’s disease in the United States by age group.</strong></em><em> The number of people living with Alzheimer’s disease is expected to rise sharply over the coming decades, driven primarily by population aging. Source: Alzheimer’s Association, 2020 Alzheimer’s disease facts and figures - </em><em><a href="https://alz-journals.onlinelibrary.wiley.com/doi/10.1002/alz.12068">link</a></em><em>.</em></figcaption></figure></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-80b2-af48-c7320071eb92" class="">At the biological level, Alzheimer’s disease is not the result of a single malfunction. Although amyloid plaques and tau tangles are its most recognizable features, the disease unfolds through widespread changes in the brain’s cellular ecosystem. Neurons, glial cells, and immune cells do not simply degenerate or activate in isolation: their abundance shifts, their molecular programs are altered, and their spatial relationships within tissue are reorganized. Together, these changes shape how the disease emerges, propagates, and ultimately disrupts brain function.</p></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-803f-996a-cb54654a985a" class="">Because access to living human brain tissue is inherently limited, much of our understanding of these processes comes from animal models. Over the years, a wide range of mouse models has been developed to study Alzheimer’s disease, each designed to capture specific aspects of pathology, such as amyloid accumulation, tau-related changes, or neuroinflammatory responses. Mouse models such as TgCRND8 have been instrumental in dissecting amyloid-driven mechanisms and testing therapeutic hypotheses. At the same time, mouse and human brains differ in key ways, such as their cellular composition, transcriptional regulation, and tissue organization, meaning that not all disease features observed in mice translate directly to human patients.</p></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-80bc-a716-c399e3b09439" class="">This diversity of models highlights an important point: Alzheimer’s disease cannot be reduced to a single biological readout, and no model is expected to reproduce all of its facets simultaneously. Rather than treating model validity as an all-or-nothing concept, a more informative question is which dimensions of the disease a given model captures, and which it does not. In this project, we adopt this perspective by comparing TgCRND8 mouse and human Alzheimer’s brain across three complementary scales: cellular composition and activation, transcriptional programs within cell types, and local spatial organization, using spatial transcriptomics to identify both points of convergence and sources of divergence.</p></div><div style="display:contents" dir="ltr"><figure id="2cfa584c-3b4e-807d-b28c-f67297ef9854" class="image"><a href="How%20Well%20Does%20a%20Mouse%20Model%20Capture%20Human%20Alzheime/image%201.png"><img style="width:528px" src="How%20Well%20Does%20a%20Mouse%20Model%20Capture%20Human%20Alzheime/image%201.png"/></a><figcaption><em><strong>Figure 2: Multiscale framework for evaluating mouse model relevance in Alzheimer’s disease.</strong></em><em> Alzheimer’s disease affects the brain across multiple biological scales, from cellular composition to gene regulation and spatial organization. We assess the relevance of the TgCRND8 mouse model by comparing mouse and human Alzheimer’s brains independently at each of these scales.</em></figcaption></figure></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-806c-ad31-f998d9eeb2c4" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="2cfa584c-3b4e-8027-a013-fc15978de9a4"/></div><div style="display:contents" dir="auto"><h3 id="2cfa584c-3b4e-8023-a7fd-dcfe2c06aca6" class=""><strong>The data: matched spatial transcriptomics across species</strong></h3></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-8029-a888-ee9d03b00bee" class="">To investigate Alzheimer’s disease across cellular, molecular, and spatial dimensions, we rely on spatial transcriptomics, a technology that measures gene expression directly in intact tissue while preserving spatial context. This approach makes it possible to identify cell types, quantify their transcriptional states, and examine how cells are organized relative to one another, all within the same tissue section. </p></div><div style="display:contents" dir="ltr"><figure id="2cfa584c-3b4e-8043-97e2-cb8baa89b6ff" class="image"><a href="How%20Well%20Does%20a%20Mouse%20Model%20Capture%20Human%20Alzheime/image%202.png"><img style="width:528px" src="How%20Well%20Does%20a%20Mouse%20Model%20Capture%20Human%20Alzheime/image%202.png"/></a><figcaption><em><strong>Figure 3: Overview of spatial transcriptomics datasets analyzed in this study.</strong></em><em> One wild-type mouse (13.4 months), one TgCRND8 mouse (17.9 months), one human Alzheimer’s disease sample, and one healthy human control were profiled using the Xenium In Situ gene expression platform. All analyses focus on cortical tissue.</em></figcaption></figure></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-8019-8437-ce7db084244e" class="">For the mouse data, we focus on the TgCRND8 model of Alzheimer’s disease, a widely used transgenic model carrying human APP with the Swedish (KM670/671NL) and Indiana (V717F) mutations. These mutations drive early and robust amyloid pathology, making TgCRND8 a popular model for studying amyloid-related mechanisms in Alzheimer’s disease. One TgCRND8 mouse (17.9 months) was compared to one wild-type control (13.4 months).</p></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-80ec-9895-c2a3f971313e" class="">Human data consist of post-mortem cortical tissue sections from one individual diagnosed with Alzheimer’s disease and one neurologically healthy control, obtained from the Human Xenium Brain dataset provided by 10x Genomics. While limited in sample number, these data provide high-resolution spatial transcriptomic measurements that enable a detailed comparison of disease-associated cellular, molecular, and spatial features within human cortex.</p></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-808b-80fd-c0b3f32ba010" class="">Both mouse and human samples were generated using the Xenium In Situ gene expression platform, which profiles a targeted panel of genes selected to capture major cell types and disease-relevant biological pathways. Using the same spatial transcriptomics technology across species ensures a shared data structure, comparable quality metrics, and similar spatial resolution. This provides a necessary technical foundation for cross-species analysis.</p></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-80b2-aefc-c13c1e67f5e7" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="2cfa584c-3b4e-8013-a00e-c45778dfa151"/></div><div style="display:contents" dir="auto"><h3 id="2cfa584c-3b4e-80f5-90f5-eb4b9a3a01b6" class=""><strong>Making mouse and human data comparable</strong></h3></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-8011-8ee6-ef1e44882969" class="">Despite this shared technological framework, meaningful comparison between mouse and human Alzheimer’s disease remains challenging. Differences in brain anatomy, cell-type annotation strategies, and spatial sampling mean that raw Xenium outputs are not directly comparable across species. Without additional alignment steps, observed differences could reflect biological context or sampling bias rather than disease-related effects.</p></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-80e1-9829-d99924271c59" class="">A central goal of this project was therefore to move beyond technical compatibility and construct a biologically aligned, analysis-ready representation of the data. This required careful quality control, harmonization of cell-type definitions, and restriction to comparable anatomical regions, ensuring that downstream comparisons reflect genuine cross-species similarities and differences in Alzheimer’s pathology.</p></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-80ad-a44d-c8893852dd34" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-8079-a355-d34fe060d840" class=""><strong>Quality control and reliable cell selection</strong></p></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-8014-8944-f0cf5aaff39e" class="">Spatial transcriptomics data combine molecular, spatial, and morphological information at single-cell resolution. However, not all segmented cells provide equally reliable measurements. To ensure that downstream analyses were driven by biologically meaningful signal, we first assessed data quality at the level of individual cells. Using cell-level metrics such as transcript counts, number of detected genes, cell and nuclear areas, and background signal from negative controls, we identified and removed low-confidence or poorly segmented cells. Rather than targeting subtle differences within the bulk of the data, this step primarily removed clear outliers. Transcripts were retained only if they belonged to high-quality cells, ensuring consistency between quality control and the resulting expression matrices. As a result, quality control improved data reliability while preserving the core transcriptional structure of each sample. </p></div><div style="display:contents" dir="ltr"><figure id="2cfa584c-3b4e-80a6-9b4c-f6c598a160a1"><div class="source"><a href="https://epfl-ada.github.io/ada-2025-website-sharknut/assets/plotly/qc_overview_prepost.html">https://epfl-ada.github.io/ada-2025-website-sharknut/assets/plotly/qc_overview_prepost.html</a></div><figcaption><em><strong>Figure 4: Effect of quality control filtering across mouse and human Xenium samples.</strong></em><em> Quality control removes low-confidence cells while preserving the majority of transcriptomic signal across all samples. Comparable retention patterns between mouse and human data indicate that filtering improves data consistency without distorting biological content.</em></figcaption></figure></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-80e3-9241-c7c8bb3a5a34" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-80dc-8723-fab59648de92" class=""><strong>Harmonizing cell types across species</strong></p></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-80b4-954a-c6b52ee2561f" class="">Even after quality control, direct comparison between mouse and human data is complicated by differences in cell-type annotation. Mouse cell types were provided with relatively fine granularity, whereas human cell types were inferred computationally using Harmony-based integration. These annotation schemes do not align one-to-one. To overcome this mismatch, we defined a shared broad cell-class taxonomy that captures major cortical populations common to both species, including excitatory and inhibitory neurons, astrocytes, oligodendrocyte–OPC lineage cells, and immune/microglia. By performing all cross-species comparisons at this level, we preserve biological interpretability while ensuring that mouse and human cell populations are directly comparable.</p></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-8058-977b-e5ea534ef177" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-804a-888e-e15bf0f66dd7" class=""><strong>Aligning anatomical scope</strong></p></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-807d-8752-f03e51f22e00" class="">An additional challenge arises from differences in spatial coverage. Human Xenium samples consist of localized cortical tissue sections, whereas mouse samples span an entire brain hemisphere and include both cortical and non-cortical regions. Without correction, this discrepancy would introduce a strong anatomical bias. To establish a common spatial basis for comparison, analyses were restricted to the cortex in both species. In mouse samples, a cortex mask was manually defined based on tissue morphology and spatial context, and only cells located within this region were retained. Within the cortex, analyses focused on neuronal, glial, and immune populations, which are most relevant to Alzheimer’s disease pathology. Human samples were already restricted to cortical tissue by design. This step ensures that observed differences reflect disease and species effects rather than gross anatomical mismatches</p></div><div style="display:contents" dir="ltr"><figure id="2cfa584c-3b4e-80d0-93e1-da598547f980"><div class="source"><a href="https://epfl-ada.github.io/ada-2025-website-sharknut/assets/plotly/cortex.html">https://epfl-ada.github.io/ada-2025-website-sharknut/assets/plotly/cortex.html</a></div><figcaption><em><strong>Figure 5: Cortex restriction of mouse spatial transcriptomics data.</strong></em><em> Cell locations are shown before and after applying a cortex mask to the mouse Xenium sample. Excluding non-cortical regions aligns the anatomical scope of mouse data with human cortical tissue, enabling meaningful cross-species comparison.</em></figcaption></figure></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-8030-b47a-c3d3925f25b9" class=""><strong>Spatial Atlas</strong></p></div><div style="display:contents" dir="auto"><ul id="2cfa584c-3b4e-8082-832d-fa1f2eeb71dd" class="toggle"><li><details open=""><summary>Mouse AD <em>TgCRND8 17.9 months</em></summary><div style="display:contents" dir="ltr"><figure id="2cfa584c-3b4e-80fc-8b26-f06569b977a7"><div class="source"><a href="https://eliesamilliti.github.io/sharknut_website/plots/plot1-mouse-al.html">https://eliesamilliti.github.io/sharknut_website/plots/plot1-mouse-al.html</a></div></figure></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-8001-95be-d01bb46603b4" class="">
+</p></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2cfa584c-3b4e-8045-a40d-ecad8362c227" class="toggle"><li><details open=""><summary>Mouse WT 13.4 months</summary><div style="display:contents" dir="ltr"><figure id="2cfa584c-3b4e-80f5-8801-c1962e6441a1"><div class="source"><a href="https://eliesamilliti.github.io/sharknut_website/plots/plot1-mouse-wt.html">https://eliesamilliti.github.io/sharknut_website/plots/plot1-mouse-wt.html</a></div></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2cfa584c-3b4e-8052-a69a-f63012e599bd" class="toggle"><li><details open=""><summary>Human AD</summary><div style="display:contents" dir="ltr"><figure id="2cfa584c-3b4e-8061-b9b0-f80d73ac39c9"><div class="source"><a href="https://eliesamilliti.github.io/sharknut_website/plots/plot1-human-al.html">https://eliesamilliti.github.io/sharknut_website/plots/plot1-human-al.html</a></div></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><ul id="2cfa584c-3b4e-8032-b96b-f159c845bf5a" class="toggle"><li><details open=""><summary>Human healthy</summary><div style="display:contents" dir="ltr"><figure id="2cfa584c-3b4e-8085-9f52-eb5d2543bf3d"><div class="source"><a href="https://eliesamilliti.github.io/sharknut_website/plots/plot1.html">https://eliesamilliti.github.io/sharknut_website/plots/plot1.html</a></div></figure></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-802d-82f3-f9cceeee5de9" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-80bc-8294-ef271238ab05" class=""><strong>Building standardized expression matrices</strong></p></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-80d7-8d7d-e3e4294f3861" class="">Following quality control, cell-type harmonization, and cortical restriction, we constructed standardized cell × gene expression matrices for each subject and species. To reduce noise from extremely sparse genes, filtering was applied consistently at the species level and propagated to all subject-level matrices. Expression values were then normalized using counts per million followed by log transformation. For each species, multiple versions of the matrices were retained (raw, QC-filtered, and QC-filtered normalized) allowing the same harmonized data foundation to be reused consistently across all downstream analyses. Together, these steps produce a unified representation of mouse and human spatial transcriptomics data, enabling transparent and reproducible comparison of cellular composition, transcriptional programs, and spatial organization in Alzheimer’s disease.</p></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><mark class="highlight-purple"><mark class="highlight-default_background"><strong>Research Question 1 — Cellular composition and activation</strong></mark></mark></summary><div class="indented"><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-80ba-a7f4-ebc1e51a8e38" class=""><mark class="highlight-purple"><strong>How does Alzheimer’s disease reshape cortical cell populations?</strong></mark></p></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-808a-9f3d-ea1bb4388538" class="">Alzheimer’s disease is accompanied by widespread changes in the brain’s cellular ecosystem. Beyond molecular dysregulation within individual cells, the disease may also reshape the relative abundance of major cortical cell populations. In this section, we examine whether Alzheimer’s disease is associated with changes in broad cell-class composition and activation, and whether these changes differ between human cortex and the TgCRND8 mouse model.</p></div><div style="display:contents" dir="auto"><h3 id="2cfa584c-3b4e-80e8-b527-e07825ea3910" class=""><strong>Baseline differences between mouse and human cortex</strong></h3></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-802e-8a4a-d8ac6a127aa8" class="">Before interpreting disease-associated effects, it is important to note that mouse and human cortex differ substantially in baseline cellular composition. Human samples exhibit a large contribution of OPC–oligodendrocyte lineage cells, whereas mouse cortex is dominated by astrocytes and excitatory neurons, with minimal OPC–oligo representation. These baseline differences likely reflect species-specific cortical organization as well as differences in sampling and annotation resolution, and should be considered when evaluating disease-related changes.</p></div><div style="display:contents" dir="auto"><h3 id="f389a8cc-b66a-41ad-a442-84d701eab9da" class="">Changes in abundance of major cell classes</h3></div><div style="display:contents" dir="auto"><p id="198b60b5-70a7-4bfa-aa0a-a3f343dbe862" class="">We quantified the relative proportions of major cortical cell classes after quality control and restriction to cortical tissue. In the human samples, the Alzheimer’s disease cortex differs from the healthy control in broad cell-class proportions. The OPC–oligodendrocyte lineage represents a large fraction of the human cortical composition in both conditions and remains prominent in the Alzheimer’s disease sample, alongside differences in neuronal populations and immune/microglial cells. These patterns suggest disease-associated shifts in cellular balance, although conclusions are limited by the small number of subjects.</p></div><div style="display:contents" dir="auto"><p id="1fdf2606-c7b3-4342-82f7-008cf15bf90a" class="">In the mouse samples, astrocytes dominate cortical composition in both TgCRND8 and wild-type animals, while immune/microglia proportions remain similar between genotypes. Differences are most visible in astrocytes and neuronal fractions, with changes on the order of several percentage points (up to 10 percentage points for astrocytes). <br/><br/>Overall, these results show that Alzheimer’s disease is associated with measurable, but moderate, shifts in broad cell-class proportions within each species. To make the direction and magnitude of these shifts explicit, we summarize disease–control differences as Δ proportions for human (AD − Healthy) and mouse (TgCRND8 − WT) (Figures 7–8).</p></div><div style="display:contents" dir="ltr"><figure id="2cfa584c-3b4e-80b8-b794-e6af13c4223d" class="image"><a href="How%20Well%20Does%20a%20Mouse%20Model%20Capture%20Human%20Alzheime/image%203.png"><img style="width:681.9750366210938px" src="How%20Well%20Does%20a%20Mouse%20Model%20Capture%20Human%20Alzheime/image%203.png"/></a><figcaption><em><strong>Figure 6: Cell-type composition per subject (cortex).</strong></em> <em>Relative proportions of broad cell classes across human and mouse subjects after cortex restriction.</em></figcaption></figure></div><div style="display:contents" dir="ltr"><figure id="2d0a584c-3b4e-8098-bdf4-fc9712fa20b2" class="image"><a href="How%20Well%20Does%20a%20Mouse%20Model%20Capture%20Human%20Alzheime/image%204.png"><img style="width:531.7750244140625px" src="How%20Well%20Does%20a%20Mouse%20Model%20Capture%20Human%20Alzheime/image%204.png"/></a><figcaption><em><strong>Figure 7: Human Δ composition (AD − Healthy).</strong></em><em><br/>Broad cell-class proportion differences between AD and healthy human cortex, highlighting the direction and magnitude of compositional shifts observed between the two human samples.</em></figcaption></figure></div><div style="display:contents" dir="ltr"><figure id="2d0a584c-3b4e-803c-a084-dea05db2447d" class="image"><a href="How%20Well%20Does%20a%20Mouse%20Model%20Capture%20Human%20Alzheime/image%205.png"><img style="width:531.7625122070312px" src="How%20Well%20Does%20a%20Mouse%20Model%20Capture%20Human%20Alzheime/image%205.png"/></a><figcaption><em><strong>Figure 8: Mouse Δ composition (TgCRND8 − WT).<br/></strong></em><em>Broad cell-class proportion differences between TgCRND8 and WT cortex, highlighting the direction and magnitude of compositional shifts </em>observed between TgCRND8 and WT mice.</figcaption></figure></div><div style="display:contents" dir="auto"><hr id="2d0a584c-3b4e-8078-b77b-d3eee8c4920a"/></div><div style="display:contents" dir="auto"><h3 id="2cfa584c-3b4e-8051-bcdf-f053a4e854de" class="">Cell Activation  </h3></div><div style="display:contents" dir="auto"><p id="2d0a584c-3b4e-801c-bcbb-ec2dda8ce4a5" class="">We study the activation of three different cell types : Astrocytes, Microglia and Oligodendrocytes. Astrocytes are the synaptic support cells of neurons, enabling their protection and supporting their metabolic balance. When they become reactive, they can get overly protective and impair a neuron’s ability to communicate and survive. Microglia are the brain’s immune system. They survey the environment and remove dead cells. In early Alzheimer’s disease, they can be more protective, but can shift later into a disease-associated state, where they tend to stop  performing their homeostatic duties and cluster near amyloid plaques, disrupting neuron communication<strong>.</strong>  Oligodendrocytes produce a very important membrane called myelin, which wraps around neuronal connections, accelerating the speed of the signals. Dysregulation and increased reactivity of oligodendrocytes is therefore incredibly detrimental. </p></div><div style="display:contents" dir="auto"><p id="2d0a584c-3b4e-807f-a819-c1ff68b10c86" class="">We choose the most relevant activation marker genes for each of these cell types, from the list of genes that are present in both mouse and human datasets. We also include some more general markers of inflammation, that we study for both Microglia and Oligodendrocytes. For each cell, we compute an activation score, based on the mean of the gene expression, and plot the activation across cells in a violin plot.</p></div><div style="display:contents" dir="ltr"><figure id="2d0a584c-3b4e-808c-b936-e611fc58ce52" class="image"><a href="How%20Well%20Does%20a%20Mouse%20Model%20Capture%20Human%20Alzheime/image%206.png"><img style="width:531.7875366210938px" src="How%20Well%20Does%20a%20Mouse%20Model%20Capture%20Human%20Alzheime/image%206.png"/></a><figcaption><em><strong>Figure 9 : Distribution of cell-type-specific activation scores.<br/></strong></em><em>For each cell, an activation score was computed based on the expression of a predefined activation gene panel for the corresponding cell type. Violin plots show the distribution of activation scores across individual cells.</em></figcaption></figure></div><div style="display:contents" dir="ltr"><figure id="2d0a584c-3b4e-8038-ba16-e3d8c4e4e998" class="image"><a href="How%20Well%20Does%20a%20Mouse%20Model%20Capture%20Human%20Alzheime/image%207.png"><img style="width:531.7875366210938px" src="How%20Well%20Does%20a%20Mouse%20Model%20Capture%20Human%20Alzheime/image%207.png"/></a><figcaption><em>Figure 10 : </em><em><strong>Violin plots showing WT-normalized activation score distributions.<br/></strong></em><em>Activation scores were calculated per cell using cell-type–specific activation gene panels restricted to genes expressed in the WT baseline, enabling normalization to WT levels. Each violin represents the distribution of scores across individual cells.</em></figcaption></figure></div><div style="display:contents" dir="auto"><p id="2d0a584c-3b4e-80c4-a250-cbc899d742ac" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2d0a584c-3b4e-8034-a952-d86e680d0d4d" class="">We observe that the main difference between the species is with the microglial cells, which exhibit far less activation in humans than in mice during Alzheimer’s disease. One explanation is that the Microglial cells are actually mostly still in the protective state in the human tissue, and the disease-associated state is not reached.  The astrocytes, however, are more consistently activated in humans. There is no data to suggest any differences for oligodendrocytes or immune reactions in all microglial cells. Another interesting result is the stratification of the cells for the human Alzheimer tissue, as cells seem to follow separate distinct activation trajectories, which is not the case for the healthy human cells. This kind of clustering  also exists for the oligodendrocytes and for the immune response, but across both species and both disease states. This indicates that mouse disease-associated microglial signatures may not directly translate to humans, emphasising the need for caution when extrapolating mouse microglial activation programs to human disease. Astrocyte activation is better conserved across species than microglia activation.</p></div><div style="display:contents" dir="auto"><p id="2d0a584c-3b4e-8041-abfa-e02226f29cc6" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2d0a584c-3b4e-80eb-97aa-e787d0942dbe"><div style="font-size:1.5em"><span class="icon">🧬</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2d0a584c-3b4e-80ea-8aa4-fc997e6c22da" class=""><mark class="highlight-purple"><mark class="highlight-default_background"><strong>RQ1 -</strong></mark></mark><mark class="highlight-purple"><mark class="highlight-default_background"> </mark></mark><mark class="highlight-purple"><mark class="highlight-default_background"><strong>Cellular composition and activation: Take-away</strong></mark></mark></p></div><div style="display:contents" dir="auto"><ul id="2d0a584c-3b4e-80c2-9a76-fbe76fa31250" class="bulleted-list"><li style="list-style-type:disc">Mouse and human cortex exhibit strong baseline differences in cellular composition, which complicate direct cross-species comparison and must be considered when interpreting disease-associated shifts.</li></ul></div><div style="display:contents" dir="auto"><ul id="2d0a584c-3b4e-800c-aae4-d33c50387820" class="bulleted-list"><li style="list-style-type:disc">Within each species, disease–control comparisons show measurable but moderate changes in broad cell-class proportions (on the order of several percentage points, up to 10 percentage points in some classes).</li></ul></div><div style="display:contents" dir="auto"><ul id="2d0a584c-3b4e-8009-a872-c842788f6b17" class="bulleted-list"><li style="list-style-type:disc">The direction of composition shifts differs between the single human and mouse comparisons, suggesting limited conservation of broad cell-class abundance changes across species.</li></ul></div><div style="display:contents" dir="auto"><ul id="2d0a584c-3b4e-8075-b6f6-c92abafc671d" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default"><mark class="highlight-default_background">Marker-based activation patterns reveal clearer disease-related signals than cell abundance alone, especially within glial populations.</mark></mark></li></ul></div><div style="display:contents" dir="auto"><ul id="2d0a584c-3b4e-8079-81ee-fd8576403cbe" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default"><mark class="highlight-default_background">Microglial activation is markedly stronger in the TgCRND8 mouse, whereas astrocytic activation appears more prominent and consistent in human Alzheimer’s cortex, highlighting partial but uneven cross-species correspondence.</mark></mark></li></ul></div></div></figure></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><mark class="highlight-orange"><strong>Research Question 2 — Transcriptional programs within cell types</strong></mark></summary><div class="indented"><div style="display:contents" dir="auto"><p id="2d0a584c-3b4e-80e4-93bb-e9dd2f177e93" class=""><mark class="highlight-orange"><mark class="highlight-default_background"><strong>Are disease-related transcriptional programs conserved across cell types between mouse and human?</strong></mark></mark></p></div><div style="display:contents" dir="auto"><p id="85c10ffa-1f70-42e4-a3f8-900a7aed4636" class="">Alzheimer’s disease profoundly reshapes how brain cells function, leaving a strong transcriptional footprint across neurons and glial cells. Mouse models are widely used to study these changes, but an important question remains: <strong>do mouse and human brain cells respond to Alzheimer’s disease in the same way, or do they arrive at similar outcomes through different molecular routes?</strong></p></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-803d-8b16-fe7ce4a9db90" class="">In this section, we explore this idea at the level of individual cell types, comparing disease-associated transcriptional changes in the TgCRND8 mouse model and in human Alzheimer’s brains. Rather than asking whether the <em>same genes</em> are altered in both species (a comparison known to yield limited overlap) we ask whether <em>similar biological programs </em>are engaged, even if the underlying gene-level signals differ.</p></div><div style="display:contents" dir="auto"><p id="75d4be05-1b1e-4dcc-bf5f-23c9d01fac0c" class="">By examining transcriptional changes across matched cell classes, moving from individual genes to coordinated pathways and finally to Alzheimer’s disease–associated orthologs, we aim to understand where cross-species similarity truly lies, and where it breaks down. This perspective allows us to assess not only whether the TgCRND8 model captures aspects of human Alzheimer’s disease, but which cellular processes it captures well, and which it does not.</p></div><div style="display:contents" dir="auto"><hr id="2cfa584c-3b4e-80a9-92f0-e8de245de593"/></div><div style="display:contents" dir="auto"><h3 id="2cfa584c-3b4e-8048-89d9-f4b7476fb9da" class=""><strong>Disease-related transcriptional changes differ strongly by species</strong></h3></div><div style="display:contents" dir="auto"><p id="9d66aeb2-d6eb-4c1f-949b-7d883553f46c" class="">Across all cell classes, human Alzheimer’s samples consistently exhibit substantially more differentially expressed genes than TgCRND8 mice. This imbalance is observed in both neuronal and glial populations, indicating that transcriptional remodeling in human disease is broader and more pronounced than in the mouse model.</p></div><div style="display:contents" dir="ltr"><figure id="2cfa584c-3b4e-80da-801e-df48e564a9e6"><div class="source"><a href="https://epfl-ada.github.io/ada-2025-website-sharknut/assets/plotly/rq2_de_context_panel_kept_de.html">https://epfl-ada.github.io/ada-2025-website-sharknut/assets/plotly/rq2_de_context_panel_kept_de.html</a></div><figcaption><em><strong>Figure 11: Gene filtering and differential expression yield by cell class. </strong></em><em>Bars show the fraction of genes from the Xenium panel that were filtered out, retained without differential expression, or identified as differentially expressed (DE) in mouse and human for each broad cell class. Across all cell classes, human Alzheimer’s samples exhibit a substantially higher proportion of DE genes than TgCRND8 mice, indicating broader transcriptional remodeling in human disease across both neuronal and glial populations.</em></figcaption></figure></div><div style="display:contents" dir="auto"><p id="431e0d3c-6676-4183-817e-e9fab3b5769f" class="">This strong asymmetry has important consequences for cross-species comparison. When one species exhibits a much larger pool of differentially expressed genes, direct gene-by-gene overlap becomes inherently limited, even if similar biological processes are affected. As a result, gene-level concordance alone provides an incomplete and potentially misleading view of cross-species similarity.</p></div><div style="display:contents" dir="auto"><hr id="2cfa584c-3b4e-8059-8bfe-e40f75d2a8d4"/></div><div style="display:contents" dir="auto"><h3 id="2cfa584c-3b4e-8061-a523-c3d73deeb0d1" class=""><strong>From genes to pathways: assessing biological convergence</strong></h3></div><div style="display:contents" dir="auto"><p id="91d968ab-b159-4e0c-806b-83f0c9b73a1d" class="">To move beyond the limitations of gene-level comparison, we examined transcriptional changes at the pathway level, where coordinated groups of genes are interpreted as functional biological programs. Pathway enrichment analyses were performed independently within each species and cell class, allowing comparison of disease-associated processes while accounting for the strong imbalance in gene-level signal between mouse and human.</p></div><div style="display:contents" dir="auto"><p id="34276c4f-8e57-447e-96e4-ca20c8b66ab3" class="">At the pathway level, evidence for cross-species convergence becomes apparent. Within several cell classes, mouse and human Alzheimer’s samples share dysregulated pathways despite limited overlap at the individual gene level. These shared pathways frequently involve immune-related processes, cellular stress responses, and metabolic or homeostatic functions, suggesting that Alzheimer’s disease can perturb similar biological programs across species even when different genes drive the response.</p></div><div style="display:contents" dir="ltr"><figure id="2cfa584c-3b4e-806b-91c8-f62df98102b4"><div class="source"><a href="https://epfl-ada.github.io/ada-2025-website-sharknut/assets/plotly/figuresshared_reactome_tables.html">https://epfl-ada.github.io/ada-2025-website-sharknut/assets/plotly/figuresshared_reactome_tables.html</a></div></figure></div><div style="display:contents" dir="auto"><p id="76e13223-495e-44d2-840b-7fe9a8025497" class=""><em><mark class="highlight-gray"><strong>Figure 12: Pathway-level convergence across species and cell classes. </strong></mark></em><em><mark class="highlight-gray">Interactive tables show Reactome pathways enriched in mouse and human Alzheimer’s samples by cell class and regulation direction. FDR values indicate pathway enrichment significance within each species, while the score summarizes pathway-level similarity based on gene-set overlap. Despite limited gene-level overlap, several cell classes exhibit convergence at the level of coordinated biological programs, particularly immune- and stress-related pathways.</mark></em></p></div><div style="display:contents" dir="auto"><p id="f3fc1325-7f21-4b38-a697-1394217be439" class="">However, pathway-level convergence is neither uniform nor global. The number of enriched pathways, their statistical strength, and their direction of regulation differ markedly between mouse and human, and these differences vary across cell classes. In some cases, pathways enriched in human Alzheimer’s samples have no counterpart in the mouse model, while in others, overlap is observed but with weaker or opposite directional signals. Notably, pathway-level overlap is largely confined to glial populations, whereas neuronal cell classes show little to no shared pathway enrichment across species.</p></div><div style="display:contents" dir="ltr"><figure id="2cfa584c-3b4e-8072-804d-e9455afc256a"><div class="source"><a href="https://epfl-ada.github.io/ada-2025-website-sharknut/assets/plotly/rq2_layer1_plotly_coverage_scatter.html">https://epfl-ada.github.io/ada-2025-website-sharknut/assets/plotly/rq2_layer1_plotly_coverage_scatter.html</a></div></figure></div><div style="display:contents" dir="auto"><p id="292507b2-2903-4866-ba98-319775ba2f1c" class=""><em><mark class="highlight-gray"><strong>Figure 13: Cell-class–specific pathway overlap between mouse and human Alzheimer’s samples. </strong></mark></em><em><mark class="highlight-gray">Coverage of shared significant pathways varies widely across cell classes and remains partial, indicating uneven pathway-level convergence between species. Point size encodes the overall cross-species similarity (Reactome Jaccard overlap), allowing coverage and overlap strength to be interpreted together.</mark></em></p></div><div style="display:contents" dir="auto"><hr id="2cfa584c-3b4e-80fb-9cd4-d16dcd38fab0"/></div><div style="display:contents" dir="auto"><h3 id="2cfa584c-3b4e-80d2-92e1-f3ff03c6bf27" class=""><strong>Focusing on orthologous Alzheimer’s disease–associated genes</strong></h3></div><div style="display:contents" dir="auto"><p id="5e99586c-4318-4cb7-b03f-6b1cc15e37ed" class="">Building on the pathway-level convergence observed above, we next refined the analysis at the gene level by focusing on curated mouse–human orthologs, with particular attention to genes previously implicated in Alzheimer’s disease. This step asks a more stringent question: are the shared transcriptional programs observed across species driven by conserved regulation of individual disease-related genes, or does convergence primarily emerge at the level of broader biological processes?</p></div><div style="display:contents" dir="auto"><p id="d0c4138c-193c-4850-8a9e-7881ae9349f3" class="">To address this, differential expression results from mouse and human were compared within each cell class using a stepwise filtering strategy. Starting from a fixed set of curated ortholog pairs, genes were progressively filtered based on whether they were significantly differentially expressed in mouse, in human, in both species, and finally whether they were regulated in the same direction across species. Alzheimer’s disease–associated genes were tracked explicitly throughout this process.</p></div><div style="display:contents" dir="ltr"><figure id="2cfa584c-3b4e-80d2-b3de-cb90152eb95d"><div class="source"><a href="https://epfl-ada.github.io/ada-2025-website-sharknut/assets/plotly/rq2_layer2_funnel.html">https://epfl-ada.github.io/ada-2025-website-sharknut/assets/plotly/rq2_layer2_funnel.html</a></div></figure></div><div style="display:contents" dir="auto"><p id="31286d1a-e247-4cb5-8a85-7645f2a808e0" class=""><em><mark class="highlight-gray"><strong>Figure 14: Ortholog filtering funnel by cell class. </strong></mark></em><em><mark class="highlight-gray">For each broad cell class, bars show the number of curated mouse–human orthologs retained after successive filtering steps: genes differentially expressed (DE) in mouse, in human, in both species, and finally genes that are both significant and regulated in the same direction. Conserved Alzheimer’s disease–associated genes are highlighted separately. Across all cell classes, gene counts decrease sharply with increasing stringency, indicating that gene-level cross-species conservation is rare; only a single AD-associated gene remains after all filtering steps.</mark></em></p></div><div style="display:contents" dir="auto"><p id="a2ffaa68-a6c3-45b5-a800-f62600472750" class="">This filtering reveals a sharp and consistent collapse in gene counts across all cell classes. While many orthologous genes are detected and some are differentially expressed in either species, very few satisfy both significance and directional concordance in mouse and human. Importantly, the number of conserved genes annotated as Alzheimer’s disease–associated is extremely limited. Across all examined cell classes, only a single AD-associated gene remains after all filtering steps.</p></div><div style="display:contents" dir="auto"><p id="e3f61cac-d577-46fc-9738-2eae2be482a1" class="">To further characterize gene-level cross-species concordance, mouse and human disease-associated log fold-changes were compared directly for orthologous Alzheimer’s disease–associated genes using quadrant scatter plots. This analysis confirms that APOE is the only AD-related gene that is both significantly differentially expressed and regulated in the same direction across species, and that this signal is restricted to astrocytes.</p></div><div style="display:contents" dir="ltr"><figure id="2cfa584c-3b4e-8026-97d1-f0d8097b1705"><div class="source"><a href="https://epfl-ada.github.io/ada-2025-website-sharknut/assets/plotly/rq2_layer2_quadrant_tabs.html">https://epfl-ada.github.io/ada-2025-website-sharknut/assets/plotly/rq2_layer2_quadrant_tabs.html</a></div></figure></div><div style="display:contents" dir="auto"><p id="6d3b3e57-c7ad-476e-aab3-96e9888103e1" class=""><em><mark class="highlight-gray"><strong>Figure 15: Gene-level cross-species concordance across cell classes. </strong></mark></em><em><mark class="highlight-gray">Each panel shows mouse–human orthologous genes positioned by their disease-associated log fold-change in mouse and human for a given cell class. Dashed lines mark significance thresholds, and genes significant in both species with the same direction of regulation are highlighted. Across cell classes, concordant gene-level regulation is rare; among Alzheimer’s disease–associated genes, only APOE in astrocytes</mark></em><em><mark class="highlight-gray"><strong> </strong></mark></em><em><mark class="highlight-gray">shows significant and directionally consistent regulation across species.</mark></em></p></div><div style="display:contents" dir="auto"><p id="23307eca-40f3-4952-b2f9-504c31a183a1" class="">In both species, astrocytic APOE expression is reduced in Alzheimer’s disease, with a modest effect size in the TgCRND8 mouse model (logFC ≈ −1.0) and a markedly stronger effect in human Alzheimer’s samples (logFC ≈ −12.1). This striking difference in magnitude mirrors the broader asymmetry in transcriptional remodeling observed between species, even when the direction of regulation is conserved. </p></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-80aa-bac4-d3e5ea6d5326" class="">APOE encodes a lipid-transport protein predominantly expressed by astrocytes in the central nervous system and represents the strongest genetic risk factor for late-onset Alzheimer’s disease in humans. Its expression is closely linked to astrocyte reactivity, neuroinflammatory responses, and amyloid-β metabolism. Importantly, altered Apoe expression has been reported repeatedly in amyloid-driven mouse models, including TgCRND8, and is thought to reflect astrocytic responses to amyloid pathology. In this context, the selective conservation of APOE across species is biologically plausible and consistent with the design of TgCRND8 as a model that primarily captures amyloid-associated disease mechanisms.</p></div><div style="display:contents" dir="auto"><p id="ac014a21-1de9-45c8-b036-716968068b6d" class="">More broadly, the extreme scarcity of conserved Alzheimer’s disease–associated genes, despite robust pathway-level convergence, suggests that cross-species similarity in Alzheimer’s disease arises primarily from shared cellular programs rather than widespread conservation of individual disease risk genes. This distinction highlights the importance of multiscale analysis when evaluating the translational relevance of mouse models, and underscores that model validity may depend on which aspects of the disease are being probed.</p></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-803e-831b-d3e518c86ad8" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2cfa584c-3b4e-807a-875e-d37d080e51c6"><div style="font-size:1.5em"><span class="icon">🧬</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-80b7-b435-dcc21f1814a7" class="block-color-orange"><mark class="highlight-orange"><mark class="highlight-default_background"><strong>RQ2 - Transcriptional programs : Take-away</strong></mark></mark></p></div><div style="display:contents" dir="auto"><ul id="c9c8165a-8af7-43c9-ae08-a8908f447093" class="bulleted-list"><li style="list-style-type:disc">Human Alzheimer’s samples exhibit substantially broader and stronger transcriptional changes than the TgCRND8 mouse model across all examined cell classes.</li></ul></div><div style="display:contents" dir="auto"><ul id="022072e8-dc34-41ee-8ad8-3d5092b51d59" class="bulleted-list"><li style="list-style-type:disc">Despite limited overlap at the level of individual differentially expressed genes, partial convergence emerges at the pathway level, particularly for immune-related and stress-response programs.</li></ul></div><div style="display:contents" dir="auto"><ul id="77dd4ccb-e0ca-4d2c-bd58-2a82786509c6" class="bulleted-list"><li style="list-style-type:disc">Pathway-level convergence is uneven and cell-class–specific, indicating that some biological programs are captured more faithfully than others by the mouse model.</li></ul></div><div style="display:contents" dir="auto"><ul id="03182900-2082-42da-a200-0d57573fa5fc" class="bulleted-list"><li style="list-style-type:disc">Gene-level cross-species conservation is extremely rare: among Alzheimer’s disease–associated genes, <strong>only APOE shows significant and directionally concordant regulation</strong>, and this effect is restricted to astrocytes.</li></ul></div><div style="display:contents" dir="auto"><ul id="181474e5-1c6a-4637-93ee-bb731cae3eac" class="bulleted-list"><li style="list-style-type:disc">The selective conservation of APOE is biologically consistent with TgCRND8 as an amyloid-driven model, underscoring that model relevance depends on the disease mechanisms being probed.</li></ul></div></div></figure></div></div></details></div><div style="display:contents" dir="auto"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><mark class="highlight-teal"><strong>Research Question 3 — Local spatial organization</strong></mark></summary><div class="indented"><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-804d-be28-dc47d30e2fa6" class=""><mark class="highlight-teal"><strong>Does Alzheimer’s disease reshape local cellular micro-architecture?</strong></mark></p></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-8086-aba6-e433ba50073f" class="">In the brain, cells don&#x27;t exist in isolation. They form intricate spatial networks where their physical organization reflects their function and interactions. In Alzheimer&#x27;s disease, this delicate micro-architecture can be profoundly disrupted, potentially contributing to cognitive decline.<br/><br/>To understand how Alzheimer&#x27;s reshapes the cellular landscape, we investigate local spatial organization at two complementary levels:</p></div><div style="display:contents" dir="auto"><ul id="2cfa584c-3b4e-8065-9057-c086420055ee" class="bulleted-list"><li style="list-style-type:disc">RQ3.1 — Gene Expression Spatial Patterns : <br/>Do cells expressing AD-associated genes cluster together or disperse in diseased tissue?</li></ul></div><div style="display:contents" dir="auto"><ul id="2cfa584c-3b4e-8011-a72d-ff52670cae79" class="bulleted-list"><li style="list-style-type:disc">RQ3.2 — Cell-Cell Spatial Interactions :<br/>How do different cell types organize relative to each other? Does Alzheimer&#x27;s alter their spatial neighborhoods?</li></ul></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-8021-8410-e6043407a586" class="">By comparing mouse cortex and human brain tissue, we can identify which spatial reorganization patterns are conserved across species and which are mouse-specific artifacts that may not translate to human pathology.</p></div><div style="display:contents" dir="auto"><h3 id="06ed3c00-2fec-42a4-93e7-6bd70d162714" class="">RQ3.1 — Gene Expression Spatial Patterns</h3></div><div style="display:contents" dir="auto"><h3 id="f3e9960d-6478-46b0-a4e7-38d49bb0e471" class="">Research Focus</h3></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-8030-9142-f41770524428" class="">We analyze the spatial distribution of cells expressing three key Alzheimer&#x27;s-associated genes:</p></div><div style="display:contents" dir="auto"><ul id="2cfa584c-3b4e-8043-b502-f7230479bc90" class="bulleted-list"><li style="list-style-type:disc"><strong>APOE</strong> (Apolipoprotein E) - 102 AD associations - Major role in lipid transport</li></ul></div><div style="display:contents" dir="auto"><ul id="2cfa584c-3b4e-80cb-b09c-d914e9b110cd" class="bulleted-list"><li style="list-style-type:disc"><strong>MOBP</strong> (Myelin-associated Oligodendrocyte Basic Protein) - 39 associations - Involved in myelination</li></ul></div><div style="display:contents" dir="auto"><ul id="2cfa584c-3b4e-801f-903e-c7ddb889f293" class="bulleted-list"><li style="list-style-type:disc"><strong>TREM2</strong> (Triggering Receptor Expressed on Myeloid cells 2) - 28 associations - Immune receptor</li></ul></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-80e6-a3c7-cf2ba76259b3" class=""><strong>Why These Genes Matter:</strong><br/><strong>APOE :<br/></strong>- Strongest genetic risk factor for late-onset Alzheimer&#x27;s<br/>- Involved in lipid transport, amyloid clearance, and neuroinflammation<br/>- Clustering may reflect apolipoprotein accumulation at plaques<br/><strong>MOBP:<br/></strong>- Critical for myelin integrity in oligodendrocytes<br/>- Clustering suggests white matter reorganization or damage response<br/>- May indicate compensatory remyelination attempts<br/><strong>TREM2:<br/></strong>- Microglial receptor for detecting cellular debris<br/>- TREM2 variants increase AD risk 2-4 fold<br/>- Clustering indicates immune cell recruitment to pathology sites</p></div><div style="display:contents" dir="auto"><h3 id="90267886-b757-4b5f-84e2-e3508fc61dfb" class="">Methodology</h3></div><div style="display:contents" dir="auto"><p id="983df66c-2886-440b-a7a2-569e81653b87" class=""><strong>Ripley&#x27;s K &amp; L Function Analysis</strong></p></div><div style="display:contents" dir="auto"><p id="ae95a425-ca42-40fa-955c-866251ca2e68" class="">We use spatial point pattern analysis to quantify clustering:</p></div><div style="display:contents" dir="auto"><ul id="cd629e12-087b-434f-aa01-0363f9c2e825" class="bulleted-list"><li style="list-style-type:disc"><strong>L(r) &gt; 0</strong>: Cells are clustered (aggregated)</li></ul></div><div style="display:contents" dir="auto"><ul id="7d77191d-46d2-46e8-859c-501fcd2de88f" class="bulleted-list"><li style="list-style-type:disc"><strong>L(r) &lt; 0</strong>: Cells are dispersed</li></ul></div><div style="display:contents" dir="auto"><ul id="ae9a6602-db71-4380-9e3a-a6bd4b402d71" class="bulleted-list"><li style="list-style-type:disc"><strong>L(r) = 0</strong>: Random distribution (CSR - Complete Spatial Randomness)</li></ul></div><div style="display:contents" dir="auto"><p id="ff8eb9c8-1764-4f2d-ba91-490f9bfe0c94" class=""><strong>Spatial Reorganization (ΔL)</strong></p></div><div style="display:contents" dir="auto"><ul id="de1ce84d-b1b8-4878-b346-b25c7b438370" class="bulleted-list"><li style="list-style-type:disc"><strong>ΔL &gt; 0</strong> : More clustering in AL</li></ul></div><div style="display:contents" dir="auto"><ul id="d2f58db5-4075-4f8d-a0d6-3f8bb9cc3638" class="bulleted-list"><li style="list-style-type:disc"><strong>ΔL &lt; 0</strong> : More dispersion in AL</li></ul></div><div style="display:contents" dir="auto"><hr id="050472dc-986c-4660-be90-0347bc62241a"/></div><div style="display:contents" dir="auto"><h3 id="d043de71-d9be-4642-9ad3-b1537a178105" class="">Results by Gene</h3></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-80cc-8467-d41aa397515f" class="">Use the buttons below to explore the spatial distribution patterns for each gene. Select a gene to view:<br/>- Left panels (Mouse): L-function curves and spatial reorganization (ΔL) in mouse cortex<br/>- Right panels (Human): L-function curves and spatial reorganization (ΔL) in human tissue</p></div><div style="display:contents" dir="auto"><p id="2d0a584c-3b4e-808d-a2e3-f3c3a6832765" class=""><em><mark class="highlight-default">Note: Click on “View Original” to better see the entire Figure.</mark></em><em><mark class="highlight-gray">  </mark></em></p></div><div style="display:contents" dir="ltr"><figure id="2d0a584c-3b4e-8062-ac5a-d94c664e4a29"><div class="source"><a href="https://epfl-ada.github.io/ada-2025-website-sharknut/assets/plotly/RQ3_1_interactive_dropdown.html">https://epfl-ada.github.io/ada-2025-website-sharknut/assets/plotly/RQ3_1_interactive_dropdown.html</a></div></figure></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-801b-94da-f9ba039f0d0f" class=""><em><mark class="highlight-gray"><strong>Figure 15: Spatial reorganization of AD-associated gene expression in mouse and human tissue.</strong></mark></em><em><mark class="highlight-gray"> </mark></em><mark class="highlight-gray"><br/></mark><em><mark class="highlight-gray">Interactive visualization showing Ripley&#x27;s L-function analysis for three Alzheimer&#x27;s-associated genes (APOE, MOBP, TREM2). </mark></em><em><mark class="highlight-gray"><strong>Top-left:</strong></mark></em><em><mark class="highlight-gray"> Mouse L-function curves comparing wild-type (WT, blue) vs. Alzheimer&#x27;s-like (AL, red) conditions, L(r) &gt; 0 indicates clustering at distance r. </mark></em><em><mark class="highlight-gray"><strong>Bottom-left:</strong></mark></em><em><mark class="highlight-gray"> Human L-function curves comparing healthy (green) vs. AL (dark red) tissue. </mark></em><em><mark class="highlight-gray"><strong>Top-right:</strong></mark></em><em><mark class="highlight-gray"> Mouse spatial reorganization (ΔL) showing the difference between AL and WT—red bars indicate increased clustering in disease. </mark></em><em><mark class="highlight-gray"><strong>Bottom-right:</strong></mark></em><em><mark class="highlight-gray"> Human spatial reorganization (ΔL) comparing AL vs. healthy. Use the buttons above to toggle between genes. Click on “View Original” to better see the entire Figure.  </mark></em></p></div><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-808e-8c5c-f3f29d3acf03" class=""><strong>Key Findings by Gene</strong></p></div><div style="display:contents" dir="auto"><ul id="2cfa584c-3b4e-8029-ae6b-e9eb3fb0474f" class="bulleted-list"><li style="list-style-type:disc">APOE-expressing cells show pronounced clustering in mouse AL cortex, likely reflecting the aggregation of apolipoprotein-producing cells around amyloid plaques. This spatial reorganization is <strong>not conserved </strong>in human tissue, suggesting species-specific differences in how APOE-expressing cells respond to Alzheimer&#x27;s pathology.</li></ul></div><div style="display:contents" dir="auto"><ul id="2cfa584c-3b4e-8018-8b73-dd638c0ff47b" class="bulleted-list"><li style="list-style-type:disc">MOBP shows the most dramatic spatial reorganization in mouse AL (+70 µm), potentially indicating oligodendrocyte clustering around areas of myelin damage or white matter pathology. In human tissue, this effect is nearly absent (+7 µm), suggesting that oligodendrocyte spatial responses differ fundamentally between species or that human tissue captures different disease stages.</li></ul></div><div style="display:contents" dir="auto"><ul id="2cfa584c-3b4e-807c-9e2f-cf482d27c045" class="bulleted-list"><li style="list-style-type:disc">TREM2-expressing cells (primarily microglia) exhibit strong clustering in mouse AL cortex (+71 µm), consistent with microglial recruitment to sites of neuroinflammation and plaque formation. Strikingly, this immune cell reorganization is <strong>completely absent</strong> in human tissue, raising important questions about the translational validity of mouse models for studying neuroinflammatory responses in Alzheimer&#x27;s disease.</li></ul></div><div style="display:contents" dir="auto"><p id="2d0a584c-3b4e-8067-a6a6-efec891ce6a5" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2cfa584c-3b4e-80fd-82c8-ead7b3231f68"><div style="font-size:1.5em"><span class="icon">🧬</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2cfa584c-3b4e-8062-bd4a-fc124a542f86" class="block-color-orange"><mark class="highlight-teal"><strong>RQ3.1 - Gene Expression Spatial Patterns: Take-away</strong></mark></p></div><div style="display:contents" dir="auto"><ul id="2cfa584c-3b4e-80e0-93c4-c099383f0e31" class="bulleted-list"><li style="list-style-type:disc">All three Alzheimer&#x27;s-associated genes (APOE, MOBP, TREM2) exhibit significant spatial clustering in mouse AL cortex compared to wild-type controls, with reorganization distances ranging from +47 to +71 µm.</li></ul></div><div style="display:contents" dir="auto"><ul id="2cfa584c-3b4e-8038-a6b6-efdb8fe5f096" class="bulleted-list"><li style="list-style-type:disc">MOBP and TREM2 show the strongest clustering effects in mouse (+70-71 µm), potentially reflecting oligodendrocyte reorganization around myelin damage and microglial recruitment to inflammatory sites, respectively.</li></ul></div><div style="display:contents" dir="auto"><ul id="2cfa584c-3b4e-80ff-8005-fcd5ef3c5c86" class="bulleted-list"><li style="list-style-type:disc">In stark contrast, none of these spatial clustering patterns are conserved in human tissue, where all three genes show negligible reorganization (&lt;10 µm) between healthy and AL conditions.</li></ul></div><div style="display:contents" dir="auto"><ul id="2cfa584c-3b4e-80a5-84bf-f27f5b6faebc" class="bulleted-list"><li style="list-style-type:disc">The complete absence of cross-species conservation at the spatial organization level suggests that mouse models exhibit fundamentally different cellular architectural responses to Alzheimer&#x27;s pathology compared to human disease.</li></ul></div><div style="display:contents" dir="auto"><ul id="2cfa584c-3b4e-80f1-b418-c2aeb1c67465" class="bulleted-list"><li style="list-style-type:disc">This species-specific discrepancy raises critical translational concerns: therapeutic strategies targeting spatial clustering mechanisms in mouse models (e.g., disrupting microglial aggregates, preventing oligodendrocyte reorganization) may not translate effectively to human Alzheimer&#x27;s disease.</li></ul></div><div style="display:contents" dir="auto"><ul id="2cfa584c-3b4e-8079-be37-c5a0002ba8e4" class="bulleted-list"><li style="list-style-type:disc">The pronounced local architectural changes in mouse models may represent artifacts of transgenic overexpression systems rather than authentic features of human neurodegeneration, highlighting the need for cross-species validation of spatial phenotypes before clinical translation.</li></ul></div></div></figure></div><div style="display:contents" dir="auto"><h3 id="2d0a584c-3b4e-8001-b447-f49c6ad3e326" class="">RQ3.2 — <strong>Local cell-type proximity enrichment</strong></h3></div><div style="display:contents" dir="auto"><p id="2d0a584c-3b4e-8063-8c38-dc991a003d3c" class="">Alzheimer’s disease does not only change <em>which</em> cell types are present or <em>which genes</em> they express. It may also alter the tissue’s <strong>micro-architecture</strong>, i.e., how different cell types are spatially arranged and how often they appear near each other. Here, we ask a simple question: <strong>are some cell types found as neighbors more (or less) often than expected by chance — and does Alzheimer’s shift these neighborhood patterns in a similar way in mouse and human cortex?</strong></p></div><div style="display:contents" dir="auto"><p id="2d0a584c-3b4e-8062-851e-c2e8078b18eb" class="">To quantify “neighborhoods”, we define two cells as neighbors if they are within <strong>80 µm</strong> of each other. For each ordered pair of cell types (A → B), we count how many B-type cells tend to lie near A-type cells, and we compare this to a null model obtained by <strong>randomly shuffling cell-type labels</strong> while keeping the same spatial coordinates. This gives an <strong>enrichment ratio per cell</strong>:</p></div><div style="display:contents" dir="auto"><ul id="2d0a584c-3b4e-8019-be8d-d35108fe8a69" class="bulleted-list"><li style="list-style-type:disc">Enrichment ≈ 1: no evidence of preferential proximity (close to chance)</li></ul></div><div style="display:contents" dir="auto"><ul id="2d0a584c-3b4e-8048-8c73-f57fb5d9f90a" class="bulleted-list"><li style="list-style-type:disc">Enrichment &gt; 1: A and B are neighbors more often than expected (local clustering)</li></ul></div><div style="display:contents" dir="auto"><ul id="2d0a584c-3b4e-8023-bc67-c7ba855855bc" class="bulleted-list"><li style="list-style-type:disc">Enrichment &lt; 1: A and B are neighbors less often than expected (local avoidance)</li></ul></div><div style="display:contents" dir="ltr"><figure id="2d0a584c-3b4e-805f-93bb-c073798e1403"><div class="source"><a href="https://epfl-ada.github.io/ada-2025-website-sharknut/assets/plotly/rq3-enrichment-ratio.html">https://epfl-ada.github.io/ada-2025-website-sharknut/assets/plotly/rq3-enrichment-ratio.html</a></div></figure></div><div style="display:contents" dir="auto"><p id="2d0a584c-3b4e-80c3-af6b-d4921afcba78" class=""><em><mark class="highlight-gray"><strong>Figure 16 — Cell-type proximity enrichment across datasets. </strong></mark></em><em><mark class="highlight-gray">Enrichment ratio per cell for ordered cell-type pairs (A → B), computed using an 80 µm neighborhood radius. The dashed line marks the null expectation (enrichment = 1) obtained by shuffling cell-type labels while preserving spatial coordinates. Values &gt;1 indicate that two cell types appear as neighbors more often than expected by chance.</mark></em></p></div><div style="display:contents" dir="auto"><p id="2d0a584c-3b4e-80c7-bd97-fb7eebf1fdd1" class="">In contrast, most cross-type pairs lie closer to the null baseline (~1), meaning that at this coarse cell-type resolution, many mixed neighborhoods are not strongly enriched relative to chance. Overall, this plot describes the <strong>baseline micro-architecture</strong> within each dataset, but it does not yet tell us whether Alzheimer’s changes these patterns in a conserved way across species.</p></div><div style="display:contents" dir="ltr"><figure id="2d0a584c-3b4e-80db-a6d8-f199390c8e27"><div class="source"><a href="https://epfl-ada.github.io/ada-2025-website-sharknut/assets/plotly/rq3-delta-concordance.html">https://epfl-ada.github.io/ada-2025-website-sharknut/assets/plotly/rq3-delta-concordance.html</a></div></figure></div><div style="display:contents" dir="auto"><p id="2d0a584c-3b4e-809d-bdf3-d3d9f1ea27c3" class="">If the mouse model captured human-like spatial remodeling, cell-type pairs that increase (or decrease) in proximity in human AD would tend to change in the same direction in mouse AD. However, we observe <strong>weak cross-species concordance</strong>: with only <strong>16 shared cell-type pairs</strong>, correlations between human and mouse deltas are low and not significant (Pearson r = 0.20, p = 0.47; Spearman ρ = 0.04, p = 0.89). This suggests that, at this neighborhood radius and using broad cell-type labels, AD-driven changes in local cellular proximity are <strong>not consistently conserved</strong> between mouse and human in our data.</p></div><div style="display:contents" dir="auto"><p id="2d0a584c-3b4e-8084-b980-e58cda3adf94" class="">A key limitation is statistical power and resolution: the overlap of comparable pairs is small (n = 16), the labels are coarse, and neighborhood metrics can be sensitive to the chosen radius. Therefore, we interpret this as <strong>limited evidence for conserved AD-related micro-architectural changes</strong>, rather than definitive proof that no spatial remodeling exists.</p></div><div style="display:contents" dir="auto"><p id="2d0a584c-3b4e-800c-9d2d-fbbfb0b00544" class="block-color-gray_background">🧬 <mark class="highlight-teal"><strong>RQ3 — Local Cellular Micro-architecture (Cell-type Proximity)- Take Away :</strong></mark><div class="indented"><div style="display:contents" dir="auto"><ul id="2d0a584c-3b4e-803b-b359-ee25e9db985c" class="bulleted-list"><li style="list-style-type:disc">We quantified local micro-architecture by measuring whether pairs of broad cell classes (A → B) occur as neighbors more often than expected by chance, using an 80 µm neighborhood radius and a label-shuffling null model (enrichment ratio; null ≈ 1).</li></ul></div><div style="display:contents" dir="auto"><ul id="2d0a584c-3b4e-8079-9053-ede7b32f2876" class="bulleted-list"><li style="list-style-type:disc">Across all datasets, proximity structure is dominated by baseline tissue organization, with the strongest enrichments largely reflecting within-class clustering (e.g., excitatory–excitatory and inhibitory–inhibitory neighborhoods), a pattern consistent with spatial segregation of major cortical cell classes.</li></ul></div><div style="display:contents" dir="auto"><ul id="2d0a584c-3b4e-805f-a299-c5a031cffaf1" class="bulleted-list"><li style="list-style-type:disc">When focusing on Alzheimer’s-related changes (Δhuman = AD − healthy; Δmouse = AD − WT), cross-species agreement is weak: only 16 shared cell-type pairs are comparable across species, and Δ concordance is low and non-significant (Pearson r ≈ 0.20, p ≈ 0.47; Spearman ρ ≈ 0.04, p ≈ 0.89).</li></ul></div><div style="display:contents" dir="auto"><ul id="2d0a584c-3b4e-8058-8302-c28ebffc2910" class="bulleted-list"><li style="list-style-type:disc">This indicates that, at this resolution and spatial scale, AD does not induce a conserved reorganization of local cell-type neighborhoods between human cortex and the TgCRND8 mouse model in our data.</li></ul></div><div style="display:contents" dir="auto"><ul id="2d0a584c-3b4e-80d0-974f-f8bdceacb02f" class="bulleted-list"><li style="list-style-type:disc">An important practical implication is that micro-architectural conclusions are sensitive to analysis scale and annotation granularity: broad cell classes and a single radius may miss subtler, state-specific spatial remodeling (e.g., activated microglia subtypes near plaques).</li></ul></div><div style="display:contents" dir="auto"><ul id="2d0a584c-3b4e-806e-9387-c6f96942b804" class="bulleted-list"><li style="list-style-type:disc">Overall, our results support a scale-specific view of translational relevance: while the mouse may capture selected glial programs, its disease-driven spatial neighborhood remodeling appears limited or model-specific relative to the human tissue analyzed here, warranting caution when extrapolating spatial micro-architecture phenotypes from TgCRND8 to humans.</li></ul></div><div style="display:contents" dir="auto"><p id="2d0a584c-3b4e-8055-9d07-e356bac738d0" class="">
+</p></div></div></p></div></div></details></div><div style="display:contents" dir="auto"><p id="2d0a584c-3b4e-8008-b0d3-ee231ad0dcf0" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="2d0a584c-3b4e-8009-8d8c-c8e01056b065" class="">Conclusion - Model relevance depends on the biological scale</h2></div><div style="display:contents" dir="auto"><p id="2d0a584c-3b4e-80c4-a520-c4a59a54010e" class="">Using matched Xenium spatial transcriptomics in mouse and human cortex, we evaluated how well the TgCRND8 model captures Alzheimer’s disease across cellular composition, cell-type transcriptional programs, and local spatial organization. The key message is that TgCRND8 relevance is not global: it depends strongly on which disease dimension is examined.</p></div><div style="display:contents" dir="ltr"><table id="2d0a584c-3b4e-809e-b7fe-f32b8d4c20cd" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d0a584c-3b4e-8086-8a83-cdbc91a9e85d"><th id="w[zz" class="simple-table-header-color simple-table-header" style="width:112px"><strong>Biological scale</strong></th><th id="FUNv" class="simple-table-header-color simple-table-header" style="width:159px"><strong>Human Alzheimer’s signal</strong></th><th id="w=O_" class="simple-table-header-color simple-table-header" style="width:143px"><strong>TgCRND8 mouse signal</strong></th><th id="`H?h" class="simple-table-header-color simple-table-header" style="width:116px"><strong>Cross-specie correspondence</strong></th><th id="bSRG" class="simple-table-header-color simple-table-header" style="width:176px"><strong>Interpretation</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2d0a584c-3b4e-80bb-af94-f005df523d9f"><td id="w[zz" class="" style="width:112px"><mark class="highlight-purple"><mark class="highlight-default_background">Baseline cellular composition</mark></mark></td><td id="FUNv" class="" style="width:159px">High OPC-oligo contribution, diverse cortical balance</td><td id="w=O_" class="" style="width:143px">Astrocyte and excitatory neuron dominated</td><td id="`H?h" class="" style="width:116px">Low</td><td id="bSRG" class="" style="width:176px">Strong intrinsic species difference dominate over disease effects</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d0a584c-3b4e-8085-b42d-e69b951d492a"><td id="w[zz" class="" style="width:112px"><mark class="highlight-purple">Disease-associtaed composition shift</mark></td><td id="FUNv" class="" style="width:159px">Moderate changes in astrocytes and neurons</td><td id="w=O_" class="" style="width:143px">Moderate shifts, different direction</td><td id="`H?h" class="" style="width:116px">Low</td><td id="bSRG" class="" style="width:176px">Composition changes are not conserved and weakly informative.</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d0a584c-3b4e-80da-970b-f7cae3bbde49"><td id="w[zz" class="" style="width:112px"><mark class="highlight-purple">Glial activation (markers)</mark></td><td id="FUNv" class="" style="width:159px">Strong astrocytic activation, limited microglial response</td><td id="w=O_" class="" style="width:143px">Strong microglial activation, astrocytic changes</td><td id="`H?h" class="" style="width:116px">Partial</td><td id="bSRG" class="" style="width:176px">Activation reflects overlapping but asymmetric glial responses</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d0a584c-3b4e-80ab-bc1b-f120e8673cba"><td id="w[zz" class="" style="width:112px"><mark class="highlight-orange">Gene-level transcriptional changes</mark></td><td id="FUNv" class="" style="width:159px">Broad, strong DE across all cell classes</td><td id="w=O_" class="" style="width:143px">Limited DE across cell classes</td><td id="`H?h" class="" style="width:116px">Minimal</td><td id="bSRG" class="" style="width:176px">Human disease shows far greater transcriptional remodeling</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d0a584c-3b4e-809e-b3c6-de888e12d353"><td id="w[zz" class="" style="width:112px"><mark class="highlight-orange">Pathway-level programs</mark></td><td id="FUNv" class="" style="width:159px">Strong enrichment of immune and stress pathways (glia)</td><td id="w=O_" class="" style="width:143px">Moderate enrichment of similar programs</td><td id="`H?h" class="" style="width:116px">Partial (glial specific)</td><td id="bSRG" class="" style="width:176px">Biological convergence emerges at the program level</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d0a584c-3b4e-8094-941f-d5eb6eed246e"><td id="w[zz" class="" style="width:112px"><mark class="highlight-orange">AD-associated orthologs</mark></td><td id="FUNv" class="" style="width:159px">Many DE genes, strong effect sizes</td><td id="w=O_" class="" style="width:143px">Few DE genes</td><td id="`H?h" class="" style="width:116px">Extremely limited</td><td id="bSRG" class="" style="width:176px">Only APOE conserved, and only in astrocytes</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d0a584c-3b4e-8000-8a5b-c6c420f02ab2"><td id="w[zz" class="" style="width:112px"><mark class="highlight-teal">Local spatial organization</mark></td><td id="FUNv" class="" style="width:159px">Subtle or absent gene-level clustering</td><td id="w=O_" class="" style="width:143px">Strong clustering of APOE, MOBP, TREM2</td><td id="`H?h" class="" style="width:116px">None</td><td id="bSRG" class="" style="width:176px">Spatial micro-architecture is not conserved across species</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d0a584c-3b4e-80a9-be88-fa0363930893"><td id="w[zz" class="" style="width:112px"><mark class="highlight-teal">Cell-type neighborhood micro-architecture </mark></td><td id="FUNv" class="" style="width:159px">Mostly within-class proximity (e.g., neuron–neuron); AD-related shifts are subtle/heterogeneous</td><td id="w=O_" class="" style="width:143px">Strong within-class clustering; AD-related proximity shifts are modest and differ from human</td><td id="`H?h" class="" style="width:116px">Low / None</td><td id="bSRG" class="" style="width:176px">Neighborhood structure is dominated by baseline tissue organization; AD-driven micro-architectural reorganization is not consistently conserved across species at this resolution.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="2d0a584c-3b4e-8083-b53f-d5c3432e1181" class="">At the level of <strong>cellular composition</strong>, strong baseline differences between mouse and human cortex dominate the signal. Alzheimer’s-associated shifts in broad cell-class proportions are present in both species but remain moderate and are not consistently aligned, limiting their value as conserved disease signatures.</p></div><div style="display:contents" dir="auto"><p id="2d0a584c-3b4e-80f5-92b8-f1bf3e13874c" class="">Disease-related effects become clearer when focusing on glial activation states. Marker-based patterns suggest partial correspondence, but with a pronounced asymmetry: microglial activation is stronger in TgCRND8, whereas astrocytic activation is more consistent in human Alzheimer’s cortex. This points to overlapping involvement of glia, but differences in how pathology engages immune and support cells across species.</p></div><div style="display:contents" dir="auto"><p id="2d0a584c-3b4e-80cd-967d-e84ed3ef8efc" class="">At the <strong>transcriptional level</strong>, human Alzheimer’s samples show far broader and stronger differential expression across cell classes than TgCRND8 mice, making direct gene-level overlap intrinsically rare. When shifting from genes to pathway-level programs, partial convergence emerges  (especially for immune, stress-response, and metabolic processes) largely within glial populations. However, stringent comparison of AD-associated orthologs shows that gene-level conservation is highly limited: among Alzheimer’s disease–associated genes, only APOE is significantly and directionally concordant, and only in astrocytes, consistent with TgCRND8 as an amyloid-driven model.</p></div><div style="display:contents" dir="auto"><p id="2d0a584c-3b4e-8037-8859-f9b0057bdae4" class="">Finally, the strongest divergence appears in <strong>local spatial organization</strong>. APOE-, MOBP-, and TREM2-expressing cells cluster strongly in TgCRND8 cortex, whereas comparable spatial reorganization is absent in the human tissue analyzed here. This lack of spatial conservation suggests that micro-architectural phenotypes in the mouse may not directly translate to human Alzheimer’s disease. In addition to gene-level spatial clustering, we evaluated <strong>cell-type neighborhood micro-architecture</strong> by measuring which cell classes are found near each other more often than expected by chance (proximity enrichment within an 80 µm radius). Across datasets, proximity patterns are dominated by <strong>baseline tissue organization</strong> (strong within-class clustering such as neuron–neuron neighborhoods). However, <strong>AD-associated shifts in these neighborhood enrichments show little cross-species agreement</strong> (only 16 shared pairs; weak and non-significant Δhuman vs Δmouse correlations), suggesting that disease-driven reorganization of local cell neighborhoods is not robustly conserved between the analyzed human tissue and TgCRND8 under this resolution and spatial scale.</p></div><div style="display:contents" dir="auto"><p id="2d0a584c-3b4e-8077-b717-d51b84a7c96e" class="">Overall, TgCRND8 captures selected amyloid-associated glial programs (most clearly at the pathway level), but does not reproduce the breadth of human transcriptional remodeling or the spatial tissue reorganization observed in this dataset. These results support a mechanism- and scale-specific view of model relevance, and illustrate how spatial transcriptomics can move model evaluation beyond a single “valid/invalid” verdict.</p></div><div style="display:contents" dir="auto"><p id="2d0a584c-3b4e-80d0-a66e-f82e921d2676" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
